@@ -1,7 +1,8 @@
 # coding: utf-8
 """
-This script uses a Markov chain approach to generate poetry based on a given text file.
-The text file contains the text from which to base new poetry.
+This script uses a Markov chain approach to generate poetry based on a given text file, or "corpus".
+Starting from a random word, a probability map is populated from all words in the corpus following the current word.
+Using the probability of the following words as weights, the next word is chosen and the process repeats until the poem is a certain length.
 """
 
 import random
