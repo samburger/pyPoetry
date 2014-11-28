@@ -1,8 +1,14 @@
 # coding: utf-8
+"""
+This script uses a Markov chain approach to generate poetry based on a given text file.
+The text file contains the text from which to base new poetry.
+"""
+
 import random
 import collections
 
 corpus = open('testtext.txt', 'r').read()
+
 # Clean the corpus: make all lowercase, remove non-apostrophe symbols & split into list.
 corpus = corpus.replace('—', ' ')
 corpus = corpus.replace('”', ' ')
@@ -21,6 +27,7 @@ def weighted_choice(weights):
             return i
 
 
+# Generate the poem.
 def makePoem(length):
     poem = [random.choice(corpus_words)]
     while len(poem) < length:
@@ -32,5 +39,5 @@ def makePoem(length):
         poem.append(new_word)
     return ' '.join(poem)
 
-# print the final poem
+# Print the final poem
 print makePoem(200)
