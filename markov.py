@@ -8,14 +8,14 @@ Using the probability of the following words as weights, the next word is chosen
 import random
 import collections
 
-corpus = open('testtext.txt', 'r').read()
+corpus = open('solitude.txt', 'r').read()
 
 # Clean the corpus: make all lowercase, remove non-apostrophe symbols & split into list.
 corpus = corpus.replace('—', ' ')
 corpus = corpus.replace('”', ' ')
 corpus = corpus.replace('“', ' ')
 corpus = corpus.replace('’', "'")
-corpus_words = corpus.lower().translate(None, '.!?@#$-:,;').split()
+corpus_words = corpus.lower().translate(None, '.!?@#$-:•,;').split()
 corpus_words = ['I' if word == 'i' else word for word in corpus_words]
 
 
@@ -41,4 +41,4 @@ def makePoem(length):
     return ' '.join(poem)
 
 # Print the final poem
-print makePoem(200)
+print makePoem(350)
